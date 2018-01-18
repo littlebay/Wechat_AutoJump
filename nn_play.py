@@ -197,9 +197,13 @@ class WechatAutoJump(object):
                 pass
 
 if __name__ == "__main__":
+    #命令参数
     parser = argparse.ArgumentParser()
+    #手机平台
     parser.add_argument('--phone', default='Android', choices=['Android', 'IOS'], type=str, help='mobile phone OS')
+    #按压系数
     parser.add_argument('--sensitivity', default=2.045, type=float, help='constant for press time')
+    #wda 服务地址
     parser.add_argument('--serverURL', default='http://localhost:8100', type=str, help='ServerURL for wda Client')
     parser.add_argument('--resource', default='resource', type=str, help='resource dir')
     parser.add_argument('--debug', default=None, type=str, help='debug mode, specify a directory for storing log files.')
