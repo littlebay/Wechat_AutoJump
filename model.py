@@ -11,6 +11,15 @@ class JumpModel:
         self.out_channel = 2
 
     def conv2d(self, name, input, ks, stride):
+        """卷积
+        args：
+            name：
+            input：
+            ks：
+            stride：
+        returns：
+            
+        """
         with tf.name_scope(name):
             with tf.variable_scope(name):
                 w = tf.get_variable('%s-w' % name, shape=ks, initializer=tf.truncated_normal_initializer())
@@ -35,6 +44,7 @@ class JumpModel:
                 # out = tf.nn.dropout(out, keep_prob, name='%s-drop' % name)
         return out
 
+    #卷积和池化
     def forward(self, img, is_training, keep_prob, name='coarse'):
         with tf.name_scope(name):
             with tf.variable_scope(name):

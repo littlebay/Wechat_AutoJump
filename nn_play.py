@@ -79,6 +79,7 @@ class WechatAutoJump(object):
         print('==== successfully restored ====')
 
     def get_current_state(self):
+        ''''''
         if self.phone == 'Android':
             os.system('adb shell screencap -p /sdcard/1.png')
             os.system('adb pull /sdcard/1.png state.png')

@@ -3,7 +3,7 @@ sys.path.append('../../')
 import numpy as np
 import os
 import tensorflow as tf
-from data_provider.jump_data_fine import JumpData
+from cnn_coarse_to_fine.data_provider.jump_data_fine import JumpData
 from model import JumpModel
 from tqdm import tqdm
 import argparse, cv2
@@ -33,6 +33,7 @@ def get_a_test(name):
     return img[np.newaxis, :, :, :], label.reshape((1, label.shape[0]))
 
 if __name__ == '__main__':
+    #参数
     parser = argparse.ArgumentParser()
     parser.add_argument('-g', '--gpu', default=None, type=int)
     args = parser.parse_args()

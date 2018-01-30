@@ -4,11 +4,11 @@ import cv2
 
 class JumpData:
     def __init__(self):
-        self.data_dir = '/home/anjie/projects/we_jump/data'
+        self.data_dir = 'D:\WorkSpaces\PycharmProjects\Wechat_AutoJump\\resource\data'
         self.name_list = []
         self.get_name_list()
-        self.val_name_list = self.name_list[:200]
-        self.train_name_list = self.name_list[200:]
+        self.val_name_list = self.name_list[:200] #迭代验证训练准确度
+        self.train_name_list = self.name_list[200:] #主要训练集
 
     def get_name_list(self):
         for i in range(3, 10):
@@ -17,7 +17,7 @@ class JumpData:
             this_name = [os.path.join(dir, name) for name in this_name]
             self.name_list = self.name_list + this_name
         self.name_list_raw = self.name_list
-        self.name_list = filter(lambda name: 'res' in name, self.name_list)
+        self.name_list = filter(lambda name: '_res' in name, self.name_list)
         self.name_list = list(self.name_list)
 
         def _name_checker(name):
